@@ -78,6 +78,7 @@
     <Compile Include="Objects\FileInformationLocalTypes.cs" />
     <Compile Include="Objects\FileTags.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stuff.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

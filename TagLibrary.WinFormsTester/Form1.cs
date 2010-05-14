@@ -15,26 +15,42 @@ namespace TagLibrary.WinFormsTester
 		public Form1()
 		{
 			InitializeComponent();
+			FillDataGrid();
+			
+		}
+
+		private void FillDataGrid()
+		{
 
 			var dd = Stuff.GetContentsOfXmlFile()
 							.Select(
-							d =>
-								new
+								d =>
+									new
 									{
-										//Artist = d.AlbumArtists.FirstOrDefault(),
+										Artist = d.AlbumArtists.FirstOrDefault(),
 										d.AlbumTitle,
-										d.FileName,
-										d.Name,
 										d.Track,
+										d.Name,
+										d.FileName,
 										d.Year
 									}
 
-									);
+									)
+							.ToList();
 
 
 
 			dataGridView1.DataSource = dd;
-			
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			Stuff.DoLotsOfStuff();
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			FillDataGrid();
 		}
 	}
 }

@@ -96,7 +96,14 @@ namespace tagLibrary
 		{
 			var x = new System.Xml.Serialization.XmlSerializer(tagInfo.GetType());
 
-			x.Serialize(new StreamWriter(XmlFileSaveLocation), tagInfo);		
+			var xx = new StreamWriter(XmlFileSaveLocation);
+
+
+			x.Serialize(xx, tagInfo);
+
+			xx.Close();
+		
+			
 		}
 
 		private static List<tagLibrary.Objects.FileTags> ReadXMLFile(string fileLocation)
@@ -108,6 +115,8 @@ namespace tagLibrary
 			var xmlReader = System.Xml.XmlReader.Create(fileLocation);
 
 			var d = (List<tagLibrary.Objects.FileTags>)x.Deserialize(xmlReader);
+
+			xmlReader.Close();
 
 			return d;			
 		}
